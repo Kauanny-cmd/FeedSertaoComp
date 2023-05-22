@@ -12,7 +12,7 @@ export function Post(){
 
       <div>
         <p>
-          Fala galeraa 👋 Acabei derealizar o minicurso de React no evento SertaoComp.Vocês gostaram? 🚀
+          Fala galeraa 👋 Acabei de realizar o minicurso de React no evento SertaoComp.Vocês gostaram? 🚀
         </p>
         <div>
           <a href="https://">#typescript</a>
