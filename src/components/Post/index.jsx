@@ -1,34 +1,39 @@
+import style from './Post.module.css';
+import { Avatar } from "../Avatar";
 
-export function Post(){
-  
+export function Post(props) {
   return (
-    <div>
-      <img/>
-        <div>
-          <span>Jane Cooper</span>
-          <span>Dev Front-End</span>
-        </div>
-      <time>Públicado há 1h</time>
-
-      <div>
-        <p>
-          Fala galeraa 👋 Acabei de realizar o minicurso de React no evento SertaoComp.Vocês gostaram? 🚀
-        </p>
-        <div>
-          <a href="https://">#typescript</a>
-          <a href="https://"> #Reac</a>
-          <a href="https://"> #sertaocomp</a>
-        </div>  
-      </div>
-      <hr/>
-
-      {/* aqui falta o formulario */}
-      <form>
-        <span>Deixe seu feedback</span>
-        <textarea/>
-        <button type="submit">Publicar</button>
-      </form>
-
-    </div>
-  )
+    <>
+      {props.postsUsers.map((item, index) => {
+        return (
+          <div key={index} className={style.container}>
+            <Avatar
+              nome={item.nome}
+              profissao={item.profissao}
+              foto={item.foto}
+              tempo={item.tempo}
+            />
+            <div className={style.textoPubli}>
+              <p>
+                {item.texto}
+              </p>
+              <div className={style.chaves}>
+                {
+                  item.chaves.map((chave, index) =>{
+                    return <a href="" key={index}>{chave}</a>
+                  })
+                }
+              </div>
+            </div>
+            <hr />
+            <form className={style.feedback}>
+              <span>Deixe seu feedback</span>
+              <textarea className={style.areaContainer} placeholder={item.place} />
+              <button className={style.bttPublicar} type="submit">Publicar</button>
+            </form>
+          </div>
+        );
+      })}
+    </>
+  );
 }
