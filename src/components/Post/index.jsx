@@ -16,9 +16,7 @@ export function Post(props) {
               tempo={item.tempo}
             />
             <div className={style.textoPubli}>
-              <p>
-                {item.texto}
-              </p>
+              <pre>{item.texto} <a href="">{item.link}</a></pre>
               <div className={style.chaves}>
                 {
                   item.chaves.map((chave, index) =>{

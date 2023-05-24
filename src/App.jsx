@@ -22,7 +22,8 @@ export function App() {
       profissao: 'Dev Front-End',
       foto: Jane,
       tempo: 'Públicado há 1h',
-      texto: 'Fala galeraa 👋 Acabei de realizar o minicurso de React no evento SertaoComp. Vocês gostaram? 🚀',
+      texto: 'Fala galeraa 👋 \n\nAcabei de realizar o minicurso de React no evento SertaoComp. Vocês gostaram? 🚀 \n\n',
+      link:[''],
       chaves: ['#typescript', ' #React', ' #sertaocomp'],
       place: 'Nossa, adorei amigo! Parabéns!',
       resposta: false,
@@ -32,10 +33,8 @@ export function App() {
       profissao: 'Dev Front-End',
       foto: Devon,
       tempo: 'Públicado há 2h',
-      texto: `
-      Fala pessoal 👋 Finalmente finalizei minha palestra sobre Clean Architecture. 
-      Foi um baita desafio repassar todo meu conhecimento para vocês💪🏻 Deixe seu feedback 👉 devonlane.design
-      `,
+      texto: `Fala pessoal 👋 \n\n\nFinalmente finalizei minha palestra sobre Clean Architecture. Foi um baita desafio repassar todo meu \nconhecimento para vocês💪🏻 \n\nDeixe seu feedback 👉`,
+      link:['devonlane.design'],
       chaves: ['#padrões', ' #CleanArchitecture'],
       place: 'Escreva um comentário...',
       resposta: true,
