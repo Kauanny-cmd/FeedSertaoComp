@@ -1,7 +1,9 @@
 import style from './Post.module.css';
 import { Avatar } from "../Avatar";
+import { ResponsePost } from '../ResponsePost';
 
 export function Post(props) {
+
   return (
     <>
       {props.postsUsers.map((item, index) => {
@@ -31,6 +33,15 @@ export function Post(props) {
               <textarea className={style.areaContainer} placeholder={item.place} />
               <button className={style.bttPublicar} type="submit">Publicar</button>
             </form>
+
+            {
+              item.resposta 
+              ? <ResponsePost 
+                  postsResponses={props.postsResponses} 
+                  setShowModal={props.setShowModal}
+                  />
+              : <></>
+            }
           </div>
         );
       })}
