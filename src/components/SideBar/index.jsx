@@ -1,17 +1,19 @@
-
 import { PencilLine } from 'phosphor-react';
 import styles from './SideBar.module.css';
+
+import Leslie from '../../assets/leslie.png';
+import photo from '../../assets/photo.svg';
 
 export function SideBar() {
   return (
     <aside className={styles.sidebar}>
       <img
           className={styles.cover}
-          src="https://images.unsplash.com/photo-1605379399642-870262d3d051?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=50"
+          src={photo}
       />
       
       <div className={styles.profile}>
-        <img src="https://github.com/fabioabrantes.png"/>
+        <img src={Leslie}/>
 
         <strong>Leslie Alexander</strong>
 
