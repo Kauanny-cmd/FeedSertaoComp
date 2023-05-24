@@ -1,48 +1,53 @@
+import { useState } from 'react'
+
 import { Post } from './components/Post';
 import { Header } from './components/Header';
 import { SideBar } from './components/SideBar';
+import { ModalLixeira } from './components/Modal'
 
 import styles from './App.module.css';
-
 import './global.css';
 
 import Jane from './assets/jane.png';
 import Devon from './assets/devon.png';
 import Bessie from './assets/bessie.png';
-import Eu from './assets/eu.png';
+import Leslie from './assets/leslie.png';
 import Jenny from './assets/jenny.png';
 
 export function App() {
+  const [showModal, setShowModal] = useState(false);
   var postsUsers = [
     {
       nome: 'Jane Cooper',
       profissao: 'Dev Front-End',
       foto: Jane,
-      tempo:'Públicado há 1h',
+      tempo: 'Públicado há 1h',
       texto: 'Fala galeraa 👋 Acabei de realizar o minicurso de React no evento SertaoComp. Vocês gostaram? 🚀',
       chaves: ['#typescript', ' #React', ' #sertaocomp'],
-      place: 'Nossa, adorei amigo! Parabéns!'
+      place: 'Nossa, adorei amigo! Parabéns!',
+      resposta: false,
     },
     {
       nome: 'Devon Lane',
       profissao: 'Dev Front-End',
       foto: Devon,
-      tempo:'Públicado há 2h',
+      tempo: 'Públicado há 2h',
       texto: `
       Fala pessoal 👋 Finalmente finalizei minha palestra sobre Clean Architecture. 
       Foi um baita desafio repassar todo meu conhecimento para vocês💪🏻 Deixe seu feedback 👉 devonlane.design
       `,
       chaves: ['#padrões', ' #CleanArchitecture'],
-      place: 'Escreva um comentário...'
+      place: 'Escreva um comentário...',
+      resposta: true,
     },
   ];
   var postsResponses = [
     {
       nome: 'Devon Lane',
       codiNome: '(você)',
-      foto:{Eu},
-      tempo:'Cerca de 2h',
-      texto:'Muito bom Devon, parabéns!! 👏👏',
+      foto: Leslie,
+      tempo: 'Cerca de 2h',
+      texto: 'Muito bom Devon, parabéns!! 👏👏',
       aplaudir: '03',
       aplaudirOn: false,
       lixeira: true,
@@ -50,9 +55,9 @@ export function App() {
     {
       nome: 'Jenny Wilson',
       codiNome: '',
-      foto:{Jenny},
-      tempo:'Cerca de 3h',
-      texto:'Adorei sua palestra!',
+      foto: Jenny ,
+      tempo: 'Cerca de 3h',
+      texto: 'Adorei sua palestra!',
       aplaudir: '33',
       aplaudirOn: true,
       lixeira: false,
@@ -60,8 +65,9 @@ export function App() {
     {
       nome: 'Bessie Cooper',
       codiNome: '',
-      foto:{Bessie},
-      texto:'💜💜',
+      foto: Bessie ,
+      tempo: 'Cerca de 6h',
+      texto: '💜💜',
       aplaudir: '03',
       aplaudirOn: false,
       lixeira: false,
@@ -69,18 +75,26 @@ export function App() {
   ];
 
   return (
-    <div>
+    <div style={{position: 'relative'}}>
       <Header />
-
       <div className={styles.wrapper}>
         <SideBar />
-
         <main>
           <Post
             postsUsers={postsUsers}
+            postsResponses={postsResponses}
+            setShowModal={setShowModal}
+            //foto={foto}
           />
         </main>
       </div>
+        {
+          showModal ? 
+          <div className={styles.modal}>
+            <ModalLixeira setShowModal={setShowModal} /> 
+          </div>
+          : <></>
+        }
     </div>
   )
 }
